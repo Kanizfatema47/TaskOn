@@ -18,7 +18,7 @@ const Header = () => {
                             <li><a>Calender</a></li>
                         </ul>
                     </div>
-                    <a class="btn btn-ghost normal-case text-xl">TaskOn</a>
+                    <a href='/' class="btn btn-ghost normal-case text-xl">TaskOn</a>
                 </div>
                 <div class="navbar-end hidden lg:flex">
                     <ul class="menu menu-horizontal p-0">
