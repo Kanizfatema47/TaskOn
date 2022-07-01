@@ -18,7 +18,7 @@ useEffect(()=>{
         console.log(newtasks)
 
         
-        fetch("http://localhost:5000/task", {
+        fetch("https://bearded-canoe-07042.herokuapp.com/task", {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",

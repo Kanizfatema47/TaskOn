@@ -10,7 +10,7 @@ const ToDoList = () => {
     const setContextTask = useContext(SetCompletedtask)
 
     useEffect(() => {
-        fetch('http://localhost:5000/gettask')
+        fetch('https://bearded-canoe-07042.herokuapp.com/gettask')
             .then(res => res.json())
             .then(data => setTasks(data))
     }, [tasks])
@@ -18,7 +18,7 @@ const ToDoList = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm("Are you sure you want to delete?");
         if (proceed) {
-            const url = `http://localhost:5000/task/${id}`;
+            const url = `https://bearded-canoe-07042.herokuapp.com/task/${id}`;
             fetch(url, {
                 method: "DELETE",
             })
@@ -39,7 +39,7 @@ const ToDoList = () => {
             setContextTask(taskcomplete)
 
 
-            const url = `http://localhost:5000/completetask/${id}`;
+            const url = `https://bearded-canoe-07042.herokuapp.com/completetask/${id}`;
             fetch(url, {
                 method: "DELETE",
             })

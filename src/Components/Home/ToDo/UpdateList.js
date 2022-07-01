@@ -13,7 +13,7 @@ const UpdateList = () => {
         console.log(newtasks)
 
         
-        fetch(`http://localhost:5000/task/${id}`, {
+        fetch(`https://bearded-canoe-07042.herokuapp.com/task/${id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
