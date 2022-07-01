@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { SetCompletedtask } from '../../../App';
 
 const ToDoList = () => {
     const [tasks, setTasks] = useState([]);
     const [completedtask, setCompletedtask] = useState([]);
+
+
+    const setContextTask = useContext(SetCompletedtask)
 
     useEffect(() => {
         fetch('http://localhost:5000/gettask')
@@ -23,18 +27,37 @@ const ToDoList = () => {
                     const remaining = tasks.filter((task) => task._id !== id);
                     setTasks(remaining);
                 });
-            }  
+        }
     };
 
-    const handleCheck=(e, task)=>{
-        if (e.target.checked){
-            console.log(task)
+    const handleCheck = (e, task, id) => {
+        const check = e.target.checked;
+        if (check) {
+            // console.log(task)
             const taskcomplete = [...completedtask, task]
             setCompletedtask(taskcomplete)
+            setContextTask(taskcomplete)
+
+
+            const url = `http://localhost:5000/completetask/${id}`;
+            fetch(url, {
+                method: "DELETE",
+            })
+                .then((res) => res.json())
+                .then((result) => {
+                    const remaining = tasks.filter((task) => task._id !== id);
+                    setTasks(remaining);
+                });
+
+                setTimeout(() => {
+                    e.target.checked =''
+                  }, 500);
+          
         }
-        
+     
+
     }
-    console.log(completedtask)
+    // console.log(completedtask)
 
     return (
         <div className='lg:mx-5  my-5 sm:mx-1 my-5'>
@@ -44,13 +67,13 @@ const ToDoList = () => {
                 tasks?.map(task => (
                     <div class="form-control justify-start  items-center flex flex-row my-3 lg:ml-24">
                         <label class="cursor-pointer label">
-                            <input type="checkbox" onClick={(e)=>handleCheck(e,task)} class="checkbox checkbox-accent" />
+                            <input type="checkbox" onClick={(e) => handleCheck(e, task, task._id)} class="checkbox checkbox-accent" />
                         </label>
                         <p className='text-lg font-semibold w-full'>{task.tasks}</p>
                         <Link to={`/form/${task._id}`} className='flex justify-center items-center'><button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                             Edit
                         </button></Link>
-                        <button onClick={() => handleDelete(task._id)}  class="bg-red-400 hover:bg-red-600 text-white font-bold ml-2 py-2 px-4 rounded">
+                        <button onClick={() => handleDelete(task._id)} class="bg-red-400 hover:bg-red-600 text-white font-bold ml-2 py-2 px-4 rounded">
                             Delete
                         </button>
 

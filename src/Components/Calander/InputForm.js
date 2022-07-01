@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
 import DatePicker from "react-datepicker";
-import './InputForm.css'
 
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
@@ -67,7 +66,8 @@ const InputForm = () => {
 
 
  return (
-   <div className="Form-parent">
+   <div className="Form-parent flex flex-col justify-center items-center">
+    <h1 className="text-3xl text-bold my-5">Add Your Events</h1>
      <Formik
        initialValues={{ eventname: "", StartTime: "", EndedTime: "" }}
        validate={(values) => {
@@ -146,11 +146,10 @@ const InputForm = () => {
          isSubmitting,
    
        }) => (
-         <form onSubmit={handleSubmit} className="form">
-           <label>
-             <strong>Enter Event Name</strong>
-           </label>
-           <input className="input input-bordered input-primary w-full max-w-xs"
+         <form onSubmit={handleSubmit} className="form flex flex-col justify-center items-center lg:w-1/2  sm:w-full">
+          
+           <input className="input input-bordered input-primary w-full my-2 max-w-xs  "
+           placeholder="Enter Event Name"
              type="text"
              name="eventname"
              onChange={handleChange}
@@ -158,18 +157,18 @@ const InputForm = () => {
              value={values.eventname}
            />
            {errors.eventname && touched.eventname && errors.eventname}
-           <label>Enter Start Time</label>
-           <input className="input input-bordered input-primary w-full max-w-xs"
+           <input className="input input-bordered input-primary w-full my-2 max-w-xs"
              type="text"
+             placeholder="Enter Start Time"
              name="StartTime"
              onChange={handleChange}
              onBlur={handleBlur}
              value={values.StartTime}
            />
            {errors.StartTime && touched.StartTime && errors.StartTime}
-           <label>Enter End Time</label>
-           <input className="input input-bordered input-primary w-full max-w-xs"
+           <input className="input input-bordered input-primary w-full my-2 max-w-xs"
              type="text"
+             placeholder="Enter End Time"
              name="EndedTime"
              onChange={handleChange}
              onBlur={handleBlur}
@@ -177,7 +176,7 @@ const InputForm = () => {
            />
            {errors.EndedTime && touched.EndedTime && errors.EndedTime}
            <label>Select Date</label>
-           <div className="date  input-bordered input-primary w-full max-w-xs">
+           <div className="date input input-bordered input-primary">
              <DatePicker
                selected={startDate}
                onChange={(date) => takingdate(date)}
@@ -186,7 +185,7 @@ const InputForm = () => {
              />
            </div>
 
-           <button type="submit" className="btn btn-success">
+           <button type="submit" className="btn btn-success my-3">
              Submit
            </button>
          </form>

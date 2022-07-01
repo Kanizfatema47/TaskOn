@@ -2,7 +2,7 @@ import React from 'react';
 import InputForm from './InputForm'
 const CalanderPage = () => {
     return (
-        <div>
+        <div className='my-36'>
             <InputForm></InputForm>
         </div>
     );

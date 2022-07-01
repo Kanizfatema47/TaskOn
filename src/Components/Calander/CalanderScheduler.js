@@ -13,8 +13,8 @@ const CalenderScheduler = ({events}) => {
 
 
   return (
-    <div className="Calendar" style={{ minHeight: 580,marginTop:'50px' }}>
-      <Calendar
+    <div className=" w-full my-5 lg:px-5 sm:mx-0" >
+      <Calendar 
         events={events.map(data => {
        
 
