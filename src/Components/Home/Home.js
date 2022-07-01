@@ -1,5 +1,4 @@
 import React from 'react';
-import Calendarr from './Calendarr';
 import CompletedTasks from './CompletedTasks';
 import AddToDo from './ToDo/AddToDo';
 import ToDoList from './ToDo/ToDoList';
@@ -7,11 +6,13 @@ import ToDoList from './ToDo/ToDoList';
 const Home = () => {
     return (
         <div>
-            <CompletedTasks></CompletedTasks>
             <AddToDo></AddToDo>
-            <ToDoList></ToDoList>
-            <Calendarr></Calendarr>
-            
+            <div className='grid lg:grid-cols-2 gap-10 sm:grid-cols-1 justify-center '>
+                <ToDoList></ToDoList>
+                <CompletedTasks></CompletedTasks>
+            </div>
+
+
         </div>
     );
 };

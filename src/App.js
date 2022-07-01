@@ -6,6 +6,8 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Error from './Components/Error'
 import ToDoList from './Components/Home/ToDo/ToDoList';
+import AddToDo from './Components/Home/ToDo/AddToDo';
+import UpdateList from './Components/Home/ToDo/UpdateList';
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home></Home>}/>
         <Route path='todo' element={<ToDoList></ToDoList>}/>
+        <Route path='/form/:id' element={<UpdateList></UpdateList>}/>
         <Route path='*' element={<Error></Error>}/>
       </Routes>
     <Footer></Footer>
