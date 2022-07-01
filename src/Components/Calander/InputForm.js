@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
 import DatePicker from "react-datepicker";
+import './InputForm.css'
 
 import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment";
+import CalenderScheduler from "./CalanderScheduler";
 
 
-import CalenderScheduler from "./Calender";
 
 
 const date = moment().format("YYYY-MM-dd");
@@ -149,7 +150,7 @@ const InputForm = () => {
            <label>
              <strong>Enter Event Name</strong>
            </label>
-           <input
+           <input className="input input-bordered input-primary w-full max-w-xs"
              type="text"
              name="eventname"
              onChange={handleChange}
@@ -158,7 +159,7 @@ const InputForm = () => {
            />
            {errors.eventname && touched.eventname && errors.eventname}
            <label>Enter Start Time</label>
-           <input
+           <input className="input input-bordered input-primary w-full max-w-xs"
              type="text"
              name="StartTime"
              onChange={handleChange}
@@ -167,7 +168,7 @@ const InputForm = () => {
            />
            {errors.StartTime && touched.StartTime && errors.StartTime}
            <label>Enter End Time</label>
-           <input
+           <input className="input input-bordered input-primary w-full max-w-xs"
              type="text"
              name="EndedTime"
              onChange={handleChange}
@@ -176,7 +177,7 @@ const InputForm = () => {
            />
            {errors.EndedTime && touched.EndedTime && errors.EndedTime}
            <label>Select Date</label>
-           <div className="date">
+           <div className="date  input-bordered input-primary w-full max-w-xs">
              <DatePicker
                selected={startDate}
                onChange={(date) => takingdate(date)}
@@ -194,3 +195,4 @@ const InputForm = () => {
      <CalenderScheduler events={event} />
    </div>
  );};
+ export default InputForm

@@ -6,23 +6,31 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Error from './Components/Error'
 import ToDoList from './Components/Home/ToDo/ToDoList';
-import AddToDo from './Components/Home/ToDo/AddToDo';
 import UpdateList from './Components/Home/ToDo/UpdateList';
+import CalanderPage from './Components/Calander/CalanderPage';
+
+
+
 
 function App() {
+ 
   return (
 
-  <div>
-      <Header> </Header>
-      <Routes>
-        <Route path='/' element={<Home></Home>}/>
-        <Route path='todo' element={<ToDoList></ToDoList>}/>
-        <Route path='/form/:id' element={<UpdateList></UpdateList>}/>
-        <Route path='*' element={<Error></Error>}/>
-      </Routes>
-    <Footer></Footer>
-  </div>
+    <div>
+   
+
+          <Header> </Header>
+          <Routes>
+            <Route path='/' element={<Home></Home>} />
+            <Route path='todo' element={<ToDoList></ToDoList>} />
+            <Route path='/form/:id' element={<UpdateList></UpdateList>} />
+            <Route path='calander' element={<CalanderPage></CalanderPage>} />
+            <Route path='*' element={<Error></Error>} />
+          </Routes>
+          <Footer></Footer>
     
+    </div>
+
   );
 }
 

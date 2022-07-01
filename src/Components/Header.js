@@ -15,6 +15,7 @@ const Header = () => {
                             <li><Link to='/completedtasks'>Completed Tasks</Link></li>
                             <li><Link to='/todo'>To Do</Link> </li>
                             <li><Link to='/calander'>To Do</Link> </li>
+                            <li><Link to='/calander'>Calander</Link> </li>
 
                             
                         </ul>
@@ -25,7 +26,8 @@ const Header = () => {
                     <ul class="menu menu-horizontal p-0">
                         <li><Link to='/'>Home</Link></li>
                         <li><Link to='/completedtasks'>Completed Tasks</Link></li>
-                        <li><Link to='/calander'>To Do</Link> </li>
+                        <li><Link to='/todo'>To Do</Link> </li>
+                        <li><Link to='/calander'>Calander</Link> </li>
 
                         
                     </ul>

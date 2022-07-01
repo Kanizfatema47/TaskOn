@@ -40,7 +40,7 @@ useEffect(()=>{
 
     }
     return (
-        <div className='m-auto text-center my-16'>
+        <div className='m-auto text-center lg:my-16 sm:my-5'>
             <label for="my-modal-5"  class="btn modal-button bg-transparent  hover:bg-gray-400 text-black  text-black">Add Tasks</label>
 
             <input type="checkbox" id="my-modal-5" class="modal-toggle" />
